@@ -118,6 +118,6 @@ Análisis de las métricas para el presente modelo:
 
 ## Envío
 
-Mi archivo enviado es: predicciones.csv
+Mi archivo enviado es: **predicciones (2).csv**
 
 
