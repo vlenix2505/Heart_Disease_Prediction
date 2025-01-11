@@ -92,7 +92,11 @@ El objetivo es predecir si un paciente tiene riesgo de sufrir una enfermedad car
 
 ![image](https://github.com/user-attachments/assets/22f18a98-8eaa-4c97-b603-d378dee59519)
   
-- En la última etapa Presentación de Resultados, se optó por mostrar la Curva ROC. Además, se procesaron los datos del archivo test.csv para subirlo a la competición de Kaggle y verificar el rendimiento con este modelo. Se obtuvo como Score: 0.86363
+- En la última etapa, Presentación de Resultados, se optó por mostrar la Curva ROC para ilustrar gráficamente el rendimiento del modelo en términos de sensibilidad y especificidad.
+
+- Además, se procesaron los datos contenidos en el archivo original **test.csv**, proporcionado por la competición de Kaggle. Dado que este archivo no contenía las columnas binarias creadas durante las etapas previas de preprocesamiento (como thalium_scan_binary y ecg_binary), fue necesario aplicar las mismas transformaciones utilizadas en el conjunto de entrenamiento. El resultado de este proceso fue un archivo llamado **test_preprocesado.csv**, que sirvió como base para aplicar el modelo Random Forest.
+
+- Finalmente, al cargar las predicciones generadas por el modelo en la competición de Kaggle, se obtuvo un Score de 0.86363, demostrando un buen desempeño del modelo en el contexto del problema planteado.
 
 ![image](https://github.com/user-attachments/assets/2d21ae59-5ea3-4e92-a689-6e03ff9d17d6)
 
