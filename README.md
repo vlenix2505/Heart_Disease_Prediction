@@ -4,6 +4,8 @@
 
 Este repositorio presenta mi participación en la predicción de enfermedades cardíacas utilizando aprendizaje automático, en la [competencia de Kaggle "EC524: Heart-disease classification"](https://www.kaggle.com/competitions/ec524-heart-disease/data). El objetivo es predecir si un paciente tiene riesgo de sufrir una enfermedad cardíaca a partir de un conjunto de datos clínicos.
 
+Ver Proyecto en este [enlace](https://colab.research.google.com/drive/1d6p0_MGMSO5ci4rvS2nLdk_p3CJiCF7k?usp=sharing) 
+
 ## Descripción del Proyecto
 
 El proyecto utiliza un conjunto de datos con 14 características relacionadas con la salud del corazón, incluyendo información demográfica, resultados de pruebas médicas y factores de riesgo. La tarea es clasificar si un paciente tiene o no una enfermedad cardíaca (clasificación binaria).
