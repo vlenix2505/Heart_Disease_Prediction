@@ -4,13 +4,13 @@
 
 Este repositorio presenta mi participación en la predicción de enfermedades cardíacas utilizando aprendizaje automático, en la [competencia de Kaggle "EC524: Heart-disease classification"](https://www.kaggle.com/competitions/ec524-heart-disease/data). El objetivo es predecir si un paciente tiene riesgo de sufrir una enfermedad cardíaca a partir de un conjunto de datos clínicos.
 
-Ver Proyecto en este [enlace](https://colab.research.google.com/drive/1d6p0_MGMSO5ci4rvS2nLdk_p3CJiCF7k?usp=sharing) 
+Ver Proyecto en este [enlace](https://colab.research.google.com/drive/1UHydEELy6iqEZIkrGGehctVWT2MyUNAU?usp=sharing). 
 
 ## Descripción del Proyecto
 
 El proyecto utiliza un conjunto de datos con 14 características relacionadas con la salud del corazón, incluyendo información demográfica, resultados de pruebas médicas y factores de riesgo. La tarea es clasificar si un paciente tiene o no una enfermedad cardíaca (clasificación binaria).
 
-La competencia se centra en construir un modelo de clasificación capaz de predecir si un paciente está en riesgo de sufrir una enfermedad cardíaca. Para esto, se utiliza **Random Forest**, un algoritmo de aprendizaje automático basado en el ensamblaje de árboles de decisión, para obtener una predicción precisa.
+La competencia se centra en construir un modelo de clasificación capaz de predecir si un paciente está en riesgo de sufrir una enfermedad cardíaca. Para esto, se utiliza **XGBoost**, un algoritmo de aprendizaje automático basado en la implementación de árboles de decisión con potenciación por gradiente.
 
 ## Metodología KDD
 
@@ -19,7 +19,7 @@ Este proyecto sigue la metodología **KDD (Knowledge Discovery in Databases)**, 
 1. **Selección de Datos**: Selección de un subconjunto relevante de datos clínicos, como características demográficas, resultados de pruebas médicas y factores de riesgo.
 2. **Preprocesamiento de Datos**: Limpieza y transformación de los datos, manejando valores faltantes, normalizando variables y convirtiendo las características en un formato adecuado para el modelo.
 3. **Transformación de Datos**: Creación de nuevas características o transformación de las existentes para mejorar el rendimiento del modelo de predicción.
-4. **Minería de Datos**: Aplicación de algoritmos de aprendizaje automático, como **Random Forest**, para entrenar el modelo y hacer predicciones basadas en los datos.
+4. **Minería de Datos**: Aplicación de algoritmos de aprendizaje automático, como **XGBoost**, para entrenar el modelo y hacer predicciones basadas en los datos.
 5. **Evaluación**: Evaluación del rendimiento del modelo utilizando métricas como la **precisión** para determinar su capacidad de generalización y evitar el sobreajuste.
 6. **Presentación de Resultados**: Presentación de las predicciones y los resultados del modelo para facilitar la toma de decisiones.
 
@@ -86,44 +86,47 @@ El objetivo es predecir si un paciente tiene riesgo de sufrir una enfermedad car
 
 ![image](https://github.com/user-attachments/assets/582c184a-57ca-4476-bb40-80058215cc97)
 
-- En la cuarta etapa de Minería de Datos, se entrenó el modelo de clasificación Random Forest debido a su capacidad para manejar datos no lineales y su resistencia al sobreajuste.
-
-![image](https://github.com/user-attachments/assets/ca878a62-7d38-4384-b619-85a7ec4e8cc1)
-
-- En la quinta etapa de Evaluación se obtuvieron las métricas para determinar el rendimiento del modelo, como Accuracy, Precision, Recall y F1-Score. Como resultado, el modelo predijo correctamente en el 72% de los casos (Por ejemplo, de 100 registros, 72 se predijeron de forma acertada). En la sección de Resultados de este README puedes ver la matriz de confusión.
-
-![image](https://github.com/user-attachments/assets/22f18a98-8eaa-4c97-b603-d378dee59519)
+- En la cuarta etapa de Minería de Datos, se entrenó el modelo de clasificación usando el algoritmo XGBoost, debido a su capacidad para manejar datos no lineales y su resistencia al sobreajuste.
   
+- Es importante resaltar que se ajustaron los hiperparámetros acorde a las      características del dataset (tamaño, tipo de clasificación, etc), para        optimizar los resultados
+
+![image](https://github.com/user-attachments/assets/99fbbb77-1abd-4538-9d6b-8362d8247690)
+
+- En la quinta etapa de Evaluación se obtuvieron las métricas para determinar el rendimiento del modelo, como Accuracy, Precision, Recall y F1-Score. Como resultado, el modelo predijo correctamente en el 85% de los casos (Por ejemplo, de 100 registros, 85 se predijeron de forma acertada). En la sección de Resultados de este README puedes ver la matriz de confusión.
+
+![image](https://github.com/user-attachments/assets/0c7581b2-95be-4991-955f-eabd5ee03eb8)
+
 - En la última etapa, Presentación de Resultados, se optó por mostrar la Curva ROC para ilustrar gráficamente el rendimiento del modelo en términos de sensibilidad y especificidad.
 
 - Además, se procesaron los datos contenidos en el archivo original **test.csv**, proporcionado por la competición de Kaggle. Dado que este archivo no contenía las columnas binarias creadas durante las etapas previas de preprocesamiento (como thalium_scan_binary y ecg_binary), fue necesario aplicar las mismas transformaciones utilizadas en el conjunto de entrenamiento. El resultado de este proceso fue un archivo llamado **test_preprocesado.csv**, que sirvió como base para aplicar el modelo Random Forest.
 
-- Finalmente, al cargar las predicciones generadas por el modelo en la competición de Kaggle, se obtuvo un Score de 0.86363, demostrando un buen desempeño del modelo en el contexto del problema planteado.
+- Finalmente, al cargar las predicciones generadas por el modelo en la competición de Kaggle, se obtuvo un Score de 0.86792, demostrando un buen desempeño del modelo en el contexto del problema planteado.
 
-![image](https://github.com/user-attachments/assets/2d21ae59-5ea3-4e92-a689-6e03ff9d17d6)
+![image](https://github.com/user-attachments/assets/cd5220ea-89c3-4471-8b10-9daedf7d1e2d)
+
 
 ## Resultados
 
-![image](https://github.com/user-attachments/assets/0116e835-8cb8-4f71-8ad6-7620e1292831)
+![image](https://github.com/user-attachments/assets/1683d3d2-26ef-4d4d-8757-64e315b78df2)
 
 Análisis de las métricas para el presente modelo:
-- Accuracy: El modelo tiene una precisión global del 71.7%, prediciendo correctamente 33 de 46 casos para el conjunto de prueba.
-- Precisión (Clase 0): El 74% de las predicciones de la clase 0 fueron correctas.
-- Precisión (Clase 1): El 70% de las predicciones de la clase 1 fueron correctas.
-- Recall (Clase 0): El modelo identificó correctamente el 71% de los casos reales de la clase 0.
-- Recall (Clase 1): El modelo identificó correctamente el 73% de los casos reales de la clase 1.
+- Accuracy: El modelo tiene una precisión global del 84.8%, prediciendo correctamente 39 de 46 casos para el conjunto de prueba.
+- Precisión (Clase 0): El 84% de las predicciones de la clase 0 fueron correctas.
+- Precisión (Clase 1): El 86% de las predicciones de la clase 1 fueron correctas.
+- Recall (Clase 0): El modelo identificó correctamente el 88% de los casos reales de la clase 0.
+- Recall (Clase 1): El modelo identificó correctamente el 82% de los casos reales de la clase 1.
 - F1-Score: Para ambas clases, los valores son similares, lo que muestra que el modelo tiene un rendimiento consistente.
 
 ## Curva ROC
 
-![image](https://github.com/user-attachments/assets/0587dce9-9957-40d0-a999-b7c7963c6c6b)
+![image](https://github.com/user-attachments/assets/c7cba8bb-71c8-489a-a536-7559678abd67)
 
 - La gráfica ROC muestra la capacidad de discriminación de nuestro modelo Random Forest.
 - La curva azul representa la relación entre la Tasa de Verdaderos Positivos (True Positive Rate) y la Tasa de Falsos Positivos (False Positive Rate) en diferentes umbrales de decisión.
-- El AUC (Área Bajo la Curva) de 0.83 indica que nuestro modelo tiene un buen rendimiento en la clasificación, distinguiendo correctamente entre clases positivas y negativas la mayor parte del tiempo.
+- El AUC (Área Bajo la Curva) de 0.88 indica que nuestro modelo tiene un buen rendimiento en la clasificación, distinguiendo correctamente entre clases positivas y negativas la mayor parte del tiempo.
 
 ## Envío
 
-Mi archivo enviado es: **predicciones (2).csv**
+Mi archivo enviado es: **predicciones_xgb.csv**
 
 
